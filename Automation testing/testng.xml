@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+	<listeners>
+	<listener class-name="ExtentReport.ExtentReporterNG"/>
+	</listeners>
+	
+  <test thread-count="5" name="test">
+    <classes>
+      <!-- <class name="tests.PantryCarTest"/>-->
+      <!--  <class name="tests.BusTest1"/>--> 
+      <!-- <class name="tests.ECateringTest"/>-->
+      <!-- <class name="tests.LoyaltyPageTest"/>-->
+      <!-- <class name="tests.HolidaysPageTest"/>-->
+      <!-- <class name="tests.CookedFoodMenuTest"/>-->
+      <!--<class name="tests.HomePageTest"/>-->
+      <!-- <class name="tests.PromotionsTest"/>-->
+      <!-- <class name="tests.FlightsLoginPageTest"/>-->
+      <!-- <class name="tests.TrainsPanelTest"/>-->
+      <!-- <class name="tests.HelpPageTest"/>-->
+      <class name="tests.Main"/>
+      
+      <!--  -->
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

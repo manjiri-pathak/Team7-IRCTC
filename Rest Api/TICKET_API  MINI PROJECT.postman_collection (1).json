@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "51ffb188-041c-420f-81e5-961ff20ec14d",
+		"name": "TICKET_API  MINI PROJECT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Read all airlines details.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{main_url}}/airlines",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Airline",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 112,\r\n    \"name\": \"Indian Airways\",\r\n    \"country\": \"India\",\r\n    \"logo\": \"https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/sri_lanka.png\",\r\n    \"slogan\": \"From India\",\r\n    \"head_quaters\": \"CHENNAI\",\r\n    \"website\": \"www.indianairways.com\",\r\n    \"established\": \"1980\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{main_url}}/airlines",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read airline by airline ID.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{main_url}}/airlines/112",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"airlines",
+						"112"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read airline corelation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{main_url}}/airlines?country=\"INDIA\"",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"airlines"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "\"INDIA\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create passenger using correcte passenger data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Piyush\",\r\n    \"trips\": 250,\r\n    \"airline\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{main_url}}/passenger",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"passenger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read passenger by passenger ID.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{main_url}}/passenger/633af6892f6d0d6e9d742f72",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"passenger",
+						"633af6892f6d0d6e9d742f72"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete passenger by using passenger ID.",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{main_url}}/passenger/633af6892f6d0d6e9d742f72",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"passenger",
+						"633af6892f6d0d6e9d742f72"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create passenger again",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// whether post method is success or not\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200]);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// String created should ne displayed.\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Zope\",\r\n    \"trips\": 50,\r\n    \"airline\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{main_url}}/passenger",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"passenger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update passenger name with correct passenger ID.",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Piyush Zope\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{main_url}}/passenger/633af75f2f6d0d2ad5742f9d",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"passenger",
+						"633af75f2f6d0d2ad5742f9d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update every detail of a passenger.",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"abc\",\r\n    \"trips\": 400,\r\n    \"airline\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{main_url}}/passenger/633af75f2f6d0d2ad5742f9d",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"passenger",
+						"633af75f2f6d0d2ad5742f9d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read all passengers.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{main_url}}/passenger?page=0&size=10",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"passenger"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pre-request script",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(\"TICKET_API  MINI PROJECT\");\r",
+							"\r",
+							"//Retrieve Global Variable\r",
+							"let urlVar = pm.variables.get(\"main_url\");\r",
+							"console.log(\"URL FOR AIRLINES: \" + urlVar);\r",
+							"\r",
+							"//  check whether status code is 200 or not\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Body String Matches\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"airlines\");\r",
+							"});\r",
+							"\r",
+							"//content-type present or not\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"//chcking respone time  less than 200\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"const obj={\r",
+							"        \"id\": 12,\r",
+							"        \"name\": \"Sri Lankan Airways\",\r",
+							"        \"country\": \"Sri Lanka\",\r",
+							"        \"logo\": \"https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/sri_lanka.png\",\r",
+							"        \"slogan\": \"From Sri Lanka\",\r",
+							"        \"head_quaters\": \"Katunayake, Sri Lanka\",\r",
+							"        \"website\": \"www.srilankaairways.com\",\r",
+							"        \"established\": \"1990\"\r",
+							"    }"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "{{main_url}}/airlines",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSON SCHEMA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"var schema = {\r",
+							"  \"airlines\": {\r",
+							"    \"id\": \"1\",\r",
+							"    \"name\":\"abc\",\r",
+							"    \"city\":\"india\"\r",
+							"  }\r",
+							"};\r",
+							"\r",
+							"var data1 = [true, false];\r",
+							"var data2 = [true, 123];\r",
+							"\r",
+							"pm.test('Schema is valid', function() {\r",
+							"  pm.expect(tv4.validate(data1, schema)).to.be.true;\r",
+							"  pm.expect(tv4.validate(data2, schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{main_url}}/passenger",
+					"host": [
+						"{{main_url}}"
+					],
+					"path": [
+						"passenger"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
